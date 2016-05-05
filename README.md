@@ -1,5 +1,7 @@
 # Simple PDO Wrapper class for MySQL and SQLite
 
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/DimNS/SimplePDO/master/LICENSE.md)
+
 ## Requirements
 - PHP 5.3 or higher is required.
 - PHP extension MySQL or SQLite.
@@ -11,8 +13,10 @@
 
 ## Usage
 ```php
-// Init class for MySQL
+// Init class for MySQL (default port 3306)
 $db = new DimNS\SimplePDO\MySQL('server', 'dbname', 'username', 'password'));
+// Or init class for MySQL (override port)
+$db = new DimNS\SimplePDO\MySQL('server', 'dbname', 'username', 'password', 3307));
 // Or init class for SQLite
 $db = new DimNS\SimplePDO\SQLite('/path/to/database/file.sqlite'));
 

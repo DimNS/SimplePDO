@@ -4,7 +4,7 @@
 *
 * class to work with MySQL
 *
-* @version v1.0.0 26.04.2016
+* @version v1.1.0 05.05.2016
 * @author Dmitrii Shcherbakov <atomcms@ya.ru>
 */
 
@@ -13,44 +13,51 @@ namespace DimNS\SimplePDO;
 class MySQL extends AbstractPDO
 {
     /**
-    * @var integer $host Database server
+    * @var string $host Database server
     */
     protected $host;
 
     /**
-    * @var integer $database Database name
+    * @var integer $port Server port
+    */
+    protected $port;
+
+    /**
+    * @var string $database Database name
     */
     protected $database;
 
     /**
-    * @var integer $user Username
+    * @var string $user Username
     */
     protected $user;
 
     /**
-    * @var integer $password Password
+    * @var string $password Password
     */
     protected $password;
 
     /**
     * Constructor
     *
-    * @param string $h Database server
-    * @param string $d Database name
-    * @param string $u Username
-    * @param string $p Password
+    * @param string  $host   Database server
+    * @param string  $dbname Database name
+    * @param string  $user   Username
+    * @param string  $pass   Password
+    * @param integer $port   Port (3306 default)
     *
     * @return null
     *
-    * @version v1.0.0 26.04.2016
+    * @version v1.1.0 05.05.2016
     * @author Dmitrii Shcherbakov <atomcms@ya.ru>
     */
-    public function __construct($h, $d, $u, $p)
+    public function __construct($host, $dbname, $user, $pass, $port = 3306)
     {
-        $this->host     = $h;
-        $this->database = $d;
-        $this->user     = $u;
-        $this->password = $p;
+        $this->host     = $host;
+        $this->port     = $port;
+        $this->database = $dbname;
+        $this->user     = $user;
+        $this->password = $pass;
     }
 
     /**
@@ -58,7 +65,7 @@ class MySQL extends AbstractPDO
     *
     * @return integer Database connection ID
     *
-    * @version v1.0.0 26.04.2016
+    * @version v1.1.0 05.05.2016
     * @author Dmitrii Shcherbakov <atomcms@ya.ru>
     */
     protected function connect()
@@ -70,7 +77,12 @@ class MySQL extends AbstractPDO
                 \PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8',
             ];
 
-            $this->connect_id = new \PDO('mysql:host=' . $this->host . ';dbname=' . $this->database, $this->user, $this->password, $options);
+            $this->connect_id = new \PDO(
+                'mysql:host=' . $this->host . ';port=' . $this->port . ';dbname=' . $this->database,
+                $this->user,
+                $this->password,
+                $options
+            );
         }
 
         return $this->connect_id;
