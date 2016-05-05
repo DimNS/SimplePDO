@@ -1,6 +1,8 @@
 # Simple PDO Wrapper class for MySQL and SQLite
 
-[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/DimNS/SimplePDO/master/LICENSE.md)
+[![Latest Stable Version](https://poser.pugx.org/dimns/simplepdo/v/stable)](https://packagist.org/packages/dimns/simplepdo)
+[![Total Downloads](https://poser.pugx.org/dimns/simplepdo/downloads)](https://packagist.org/packages/dimns/simplepdo)
+[![License](https://poser.pugx.org/dimns/simplepdo/license)](https://packagist.org/packages/dimns/simplepdo)
 
 ## Requirements
 - PHP 5.3 or higher is required.
