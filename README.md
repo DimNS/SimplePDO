@@ -16,11 +16,11 @@
 ## Usage
 ```php
 // Init class for MySQL (default port 3306)
-$db = new DimNS\SimplePDO\MySQL('server', 'dbname', 'username', 'password'));
+$db = new DimNS\SimplePDO\MySQL('server', 'dbname', 'username', 'password');
 // Or init class for MySQL (override port)
-$db = new DimNS\SimplePDO\MySQL('server', 'dbname', 'username', 'password', 3307));
+$db = new DimNS\SimplePDO\MySQL('server', 'dbname', 'username', 'password', 3307);
 // Or init class for SQLite
-$db = new DimNS\SimplePDO\SQLite('/path/to/database/file.sqlite'));
+$db = new DimNS\SimplePDO\SQLite('/path/to/database/file.sqlite');
 
 // Query without prepared variables
 $result = $db->query('SELECT `field1`, `field2` FROM `table`');
