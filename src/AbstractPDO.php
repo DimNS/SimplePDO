@@ -1,44 +1,44 @@
 <?php
 /**
-* AbstractPDO
-*
-* Abstract class
-*
-* @version v1.0.0 26.04.2016
-* @author Dmitrii Shcherbakov <atomcms@ya.ru>
-*/
+ * AbstractPDO
+ *
+ * Abstract class
+ *
+ * @version v1.0.0 26.04.2016
+ * @author Dmitrii Shcherbakov <atomcms@ya.ru>
+ */
 
 namespace DimNS\SimplePDO;
 
 abstract class AbstractPDO
 {
     /**
-    * @var integer $connect_id Database connection ID
-    */
+     * @var integer $connect_id Database connection ID
+     */
     protected $connect_id = null;
 
     /**
-    * Database connection
-    *
-    * @return integer Database connection ID
-    *
-    * @version v1.0.0 26.04.2016
-    * @author Dmitrii Shcherbakov <atomcms@ya.ru>
-    */
+     * Database connection
+     *
+     * @return integer Database connection ID
+     *
+     * @version v1.0.0 26.04.2016
+     * @author Dmitrii Shcherbakov <atomcms@ya.ru>
+     */
     abstract protected function connect();
 
     /**
-    * Running a query
-    *
-    * @param string $query_str  Query (required)
-    * @param array  $query_data Data (optional)
-    *
-    * @return array|integer Returns the result of the request,
-    * depending on the type of request
-    *
-    * @version v1.0.0 26.04.2016
-    * @author Dmitrii Shcherbakov <atomcms@ya.ru>
-    */
+     * Running a query
+     *
+     * @param string $query_str  Query (required)
+     * @param array  $query_data Data (optional)
+     *
+     * @return array|integer Returns the result of the request,
+     * depending on the type of request
+     *
+     * @version v1.0.0 26.04.2016
+     * @author Dmitrii Shcherbakov <atomcms@ya.ru>
+     */
     public function query($query_str, $query_data = [])
     {
         $this->connect();
