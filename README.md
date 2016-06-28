@@ -37,6 +37,27 @@ $result = $db->query('INSERT INTO `table` SET
     'field2' => 123,
 ]);
 echo $result;
+
+// Transaction (only for mysql innodb table)
+$result = $db->transaction([
+    [
+        'query' => 'INSERT INTO `table` SET `field1` = :field1, `field2` = :field2, `field3` = :field3',
+        'data'  => [
+            'field1' => 'val1',
+            'field2' => 'val2',
+            'field3' => 'val3',
+        ],
+    ], [
+        'query' => 'UPDATE `table` SET `field1` = :field1 WHERE `field2` > :field2',
+        'data'  => [
+            'field1' => 'val1',
+            'field2' => 'val2',
+        ],
+    ],
+]);
+echo '<pre>';
+print_r($result);
+echo '</pre>';
 ```
 
 ## Return values
