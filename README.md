@@ -1,3 +1,5 @@
+## Project is deprecated.
+
 # Simple PDO Wrapper class for MySQL and SQLite
 
 [![Latest Stable Version](https://poser.pugx.org/dimns/simplepdo/v/stable)](https://packagist.org/packages/dimns/simplepdo)
